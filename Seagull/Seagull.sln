@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{FBB1197D-07F0-FB4F-B4B5-C2947C2CB089}") = "Seagull", "Assembly-CSharp-firstpass.csproj", "{B3A5CB4F-414B-27CC-E0DB-04FC3AC407F3}"
+EndProject
 Project("{FBB1197D-07F0-FB4F-B4B5-C2947C2CB089}") = "Seagull", "Assembly-CSharp.csproj", "{B9A50F88-2934-AB4E-2C80-9156ED12559C}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3A5CB4F-414B-27CC-E0DB-04FC3AC407F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A5CB4F-414B-27CC-E0DB-04FC3AC407F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A5CB4F-414B-27CC-E0DB-04FC3AC407F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A5CB4F-414B-27CC-E0DB-04FC3AC407F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B9A50F88-2934-AB4E-2C80-9156ED12559C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9A50F88-2934-AB4E-2C80-9156ED12559C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9A50F88-2934-AB4E-2C80-9156ED12559C}.Release|Any CPU.ActiveCfg = Release|Any CPU
