@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692528, g: 0.49678677, b: 0.57508475, a: 1}
+  m_IndirectSpecularColor: {r: 0.44711846, g: 0.4973929, b: 0.5761543, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -382,9 +382,11 @@ Prefab:
     - target: {fileID: 20000012188780078, guid: c50280962b710e943abf70b1aa515bfc,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010605370212, guid: c50280962b710e943abf70b1aa515bfc, type: 2}
+    - {fileID: 114000014258494650, guid: c50280962b710e943abf70b1aa515bfc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c50280962b710e943abf70b1aa515bfc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1534159899
@@ -477,6 +479,7 @@ GameObject:
   - 4: {fileID: 1821894324}
   - 114: {fileID: 1821894326}
   - 114: {fileID: 1821894325}
+  - 114: {fileID: 1821894327}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -580,6 +583,17 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+--- !u!114 &1821894327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821894323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7efc5fd318bbe24596f113e4f63fa07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1942705176
 Prefab:
   m_ObjectHideFlags: 0
