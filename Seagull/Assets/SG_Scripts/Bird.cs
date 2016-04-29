@@ -45,40 +45,52 @@ public class Bird : MonoBehaviour {
         else if (Input.GetKey(KeyCode.Space) && !landed)
         {
             animator.Play("Flap");
-            animator.SetFloat("Flap", 1);
+            animator.SetFloat("Fly", 1);
             rigidBody.AddForce(transform.up * Time.deltaTime * 1000);
+        }
+        //else
+        //{
+        if (landed)
+        {
+            //animator.SetFloat("TakeOff", 0);
+            bool isIdle = true;
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                animator.Play("Walk");
+                animator.SetFloat("Walk", 1);
+                rigidBody.AddForce(transform.forward * Time.deltaTime * 1000);
+                isIdle = false;
+            }
+
+			if (Input.GetKey(KeyCode.S))
+			{
+				animator.Play("Walk");
+				animator.SetFloat("Walk", -1);
+				rigidBody.AddForce(transform.forward * Time.deltaTime * -1000);
+				isIdle = false;
+			}
+
+			if (isIdle)
+            {
+                animator.SetFloat("Walk", 0);
+                animator.Play("Idle");
+            }
         }
         else
         {
-            if (landed)
+            if (Input.GetKey(KeyCode.W))
             {
-                //animator.SetFloat("TakeOff", 0);
-                bool isIdle = true;
-
-                if (Input.GetKey(KeyCode.W))
-                {
-                    animator.Play("Walk");
-                    animator.SetFloat("Walk", 1);
-                    rigidBody.AddForce(transform.forward * Time.deltaTime * 1000);
-                    isIdle = false;
-                }
-
-                if (isIdle)
-                {
-                    animator.SetFloat("Walk", 0);
-                    animator.Play("Idle");
-                }
+                rigidBody.AddForce(transform.forward * Time.deltaTime * 1000);
             }
-            else
-            {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    rigidBody.AddForce(transform.forward * Time.deltaTime * 1000);
-                }
 
-                //Debug.Log("We're flying!");
-            }
-        }
+			if (Input.GetKey(KeyCode.S))
+			{
+				rigidBody.AddForce(transform.forward * Time.deltaTime * -100);
+			}
+			//Debug.Log("We're flying!");
+		}
+       // }
 
         if(Input.GetKey(KeyCode.A))
         {

@@ -20,6 +20,27 @@ public class NetworkInitializer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
+		InitializeMongoDB();
+		StartCoroutine(InitializeMySQl());
+    }
+
+	IEnumerator InitializeMySQl()
+	{
+		WWW result = new WWW("http://localhost:8080/seagull/index.php");
+		yield return result;
+		if (result.error != null)
+		{
+			Debug.Log("Error");
+		}
+		else
+		{
+			Debug.Log("PHP response: " + result.text);
+		}
+	}
+
+	void InitializeMongoDB()
+	{
 		_client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
 		_server = _client.GetServer();
 
@@ -27,7 +48,7 @@ public class NetworkInitializer : MonoBehaviour {
 		_db = _server.GetDatabase("seagulldb");
 		_users = _db.GetCollection<Users>("Users");
 
-		Debug.Log(string.Format("Found {0} documents." , _users.Count()));
+		Debug.Log(string.Format("Found {0} documents.", _users.Count()));
 		var filter = new Users();
 
 		var jsonString = _users.FindAll().ToJson();
@@ -38,9 +59,14 @@ public class NetworkInitializer : MonoBehaviour {
 			Debug.Log(u.name);
 		}
 	}
+
+	public void WritePoopMessage(string message)
+	{
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 }

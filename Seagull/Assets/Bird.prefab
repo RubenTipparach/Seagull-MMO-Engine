@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000010368102190}
   m_IsPrefabParent: 1
+--- !u!1 &1000010007836342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012706485754}
+  m_Layer: 0
+  m_Name: PoopSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -1345005823273527930, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010140963044
 GameObject:
   m_ObjectHideFlags: 1
@@ -178,8 +193,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012409479136}
   - 95: {fileID: 95000012465483996}
-  - 114: {fileID: 114000014258494650}
-  - 114: {fileID: 114000010605370212}
   m_Layer: 0
   m_Name: Seagull_2014
   m_TagString: Untagged
@@ -488,6 +501,7 @@ Transform:
   m_Children:
   - {fileID: 4000013754649386}
   - {fileID: 4000012409479136}
+  - {fileID: 4000012706485754}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -557,6 +571,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010551530984}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4000012706485754
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010007836342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.27, z: -3.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4000011815475932}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000012785971328
 Transform:
@@ -805,25 +832,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010605370212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011717233962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 95000012465483996}
-  m_ParameterSendBits: 0
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
 --- !u!114 &114000010645780682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -902,39 +910,8 @@ MonoBehaviour:
   bird: {fileID: 114000011468889962}
   cameraMain: {fileID: 20000012188780078}
   audioListener: {fileID: 81000013538155206}
-  networkAnimator: {fileID: 114000010605370212}
---- !u!114 &114000014258494650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011717233962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 197
-    i1: 2
-    i2: 128
-    i3: 150
-    i4: 43
-    i5: 113
-    i6: 14
-    i7: 148
-    i8: 58
-    i9: 191
-    i10: 112
-    i11: 177
-    i12: 170
-    i13: 81
-    i14: 91
-    i15: 252
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  poopObject: {fileID: 1000013153610464, guid: 8d189cd0aa4bdb54caa0c6a2a08e8b82, type: 2}
+  poopHole: {fileID: 4000012706485754}
 --- !u!124 &124000012344715522
 Behaviour:
   m_ObjectHideFlags: 1

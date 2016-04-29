@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Assets\SG_Scripts\Bird.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetwork.cs" />
+    <Compile Include="Assets\SG_Scripts\BirdPoop.cs" />
     <Compile Include="Assets\SG_Scripts\GenerateWater.cs" />
     <Compile Include="Assets\SG_Scripts\NetworkInitializer.cs" />
     <Compile Include="Assets\SG_Scripts\Server.cs" />

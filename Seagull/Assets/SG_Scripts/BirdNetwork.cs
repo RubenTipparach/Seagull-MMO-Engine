@@ -13,15 +13,27 @@ public class BirdNetwork : NetworkBehaviour {
     [SerializeField]
     AudioListener audioListener;
 
-    [SerializeField]
-    NetworkAnimator networkAnimator;
+    //[SerializeField]
+    //NetworkAnimator networkAnimator;
 
-    private Animator animator;
+	//[SyncVar]
+	//public int health;
 
-    /// <summary>
-    /// Use this for initialization.
-    /// </summary>
-    void Start () {
+	[SerializeField]
+	GameObject poopObject;
+
+	[SerializeField]
+	Transform poopHole;
+
+	[SerializeField]
+	NetworkInitializer talkToServer;
+
+	private Animator animator;
+
+	/// <summary>
+	/// Use this for initialization.
+	/// </summary>
+	void Start () {
 	    if(isLocalPlayer)
         {
             bird.enabled = true;
@@ -41,19 +53,20 @@ public class BirdNetwork : NetworkBehaviour {
     /// </summary>
     public override void OnStartLocalPlayer()
     {
-        // base.OnStartLocalPlayer();
-        networkAnimator.SetParameterAutoSend(0, true); 
+       // base.OnStartLocalPlayer();
+        //networkAnimator.SetParameterAutoSend(0, true); 
     }
 
     public override void PreStartClient()
     {
-        // base.PreStartClient();
-        networkAnimator.SetParameterAutoSend(0, true);
+      //  base.PreStartClient();
+       // networkAnimator.SetParameterAutoSend(0, true);
     }
 
     // Update is called once per frame
     void Update()
     {
+		// Automate animations on other client sides.
         if (!isLocalPlayer)
         {
             bool landed = true;
@@ -72,7 +85,7 @@ public class BirdNetwork : NetworkBehaviour {
             if (!landed)
             {
                 animator.Play("Flap");
-                animator.SetFloat("Flap", 1);
+                animator.SetFloat("Fly", 1);
             }
             else if (landed)
             {
@@ -81,5 +94,37 @@ public class BirdNetwork : NetworkBehaviour {
                 animator.Play("Idle");
             }
         }
+
+		// The player can trigger messages, and the engine should sync....[crap] (•_•) ( •_•)>⌐■-■ (⌐■_■) YEEEAAAAHHH!!!!!!
+		if (isLocalPlayer)
+		{
+			if (Input.GetKeyDown(KeyCode.C))
+			{
+				CmdPoop();
+			}
+		}
+    }
+
+	/// <summary>
+	/// Stores this message in some database stuff to be retrieved later by some other client. Or when the server boots.
+	/// </summary>
+	void CmdMessagePoop()
+	{
+		// Ray cast to the ground, instantiate decal lol.
+		// Give it ID so that it can be posted.
+		// Every bird should get a max of like 5 messages or something.
+		// How the F do I get message?
+		string message = "";
+		talkToServer.WritePoopMessage(message);
+    }
+
+	/// <summary>
+	/// Commands the poop. lol wut?
+	/// </summary>
+	[Command]
+	void CmdPoop()
+	{
+		var poopy = (GameObject)Instantiate(poopObject, poopHole.position, poopHole.rotation);
+		NetworkServer.Spawn(poopy);
     }
 }
