@@ -30,6 +30,12 @@ public class BirdNetwork : NetworkBehaviour {
 
 	private Animator animator;
 
+    [SyncVar]
+    public int Health = 100;
+
+    [SerializeField]
+    Renderer birdColor;
+
 	/// <summary>
 	/// Use this for initialization.
 	/// </summary>
@@ -39,8 +45,6 @@ public class BirdNetwork : NetworkBehaviour {
             bird.enabled = true;
             cameraMain.enabled = true;
             audioListener.enabled = true;
-
-            
         }
         else
         {
@@ -67,34 +71,6 @@ public class BirdNetwork : NetworkBehaviour {
     void Update()
     {
 		// Automate animations on other client sides.
-        if (!isLocalPlayer)
-        {
-            bool landed = true;
-
-            RaycastHit hit;
-            
-            if (Physics.Raycast(new Ray(bird.transform.position, -bird.transform.up), out hit))
-            {
-                //Debug.Log(hit.distance);
-                if (hit.distance > 1)
-                {
-                    landed = false;
-                }
-            }
-
-            if (!landed)
-            {
-                animator.Play("Flap");
-                animator.SetFloat("Fly", 1);
-            }
-            else if (landed)
-            {
-                //animator.SetFloat("TakeOff", 0);
-                animator.SetFloat("Walk", 0);
-                animator.Play("Idle");
-            }
-        }
-
 		// The player can trigger messages, and the engine should sync....[crap] (•_•) ( •_•)>⌐■-■ (⌐■_■) YEEEAAAAHHH!!!!!!
 		if (isLocalPlayer)
 		{
@@ -102,7 +78,9 @@ public class BirdNetwork : NetworkBehaviour {
 			{
 				CmdPoop();
 			}
-		}
+
+            CmdCheckTerminatePlayer();
+        }
     }
 
 	/// <summary>
@@ -125,6 +103,68 @@ public class BirdNetwork : NetworkBehaviour {
 	void CmdPoop()
 	{
 		var poopy = (GameObject)Instantiate(poopObject, poopHole.position, poopHole.rotation);
-		NetworkServer.Spawn(poopy);
+        poopy.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity + -Vector3.up *10;
+
+        NetworkServer.Spawn(poopy);
+    }
+
+    [Command]
+    void CmdCheckTerminatePlayer()
+    {
+        if(Health <= 0)
+        {
+            NetworkServer.Destroy(this.gameObject);
+        }
+    }
+
+    [Server]
+    public void TakeDamage(int amount)
+    {
+        // will only work on server
+        Health -= amount;
+
+        //birdColor.material.color = ColorSwitch();
+        RpcPushClientColor();
+    }
+
+    [ClientRpc]
+    public void RpcPushClientColor()
+    {
+        var colorPicked = ColorSwitch();
+        birdColor.material.color = colorPicked;
+        CmdChangeColor(colorPicked);
+    }
+
+    [Command]
+    public void CmdChangeColor(Color colorPicked)
+    {
+        birdColor.material.color = colorPicked;
+    }
+
+    Color ColorSwitch()
+    {
+        switch ( Health)
+        {
+            case 90:
+                return Color.blue;
+            case 80:
+                return Color.green;
+            case 70:
+                return Color.cyan;
+            case 60:
+                return Color.yellow;
+            case 50:
+                return new Color(1, .41f, 0);
+            case 40:
+                return Color.red;
+            case 30:
+                return Color.magenta;
+            case 20:
+                return Color.white;
+            case 10:
+                return Color.white;
+            default:
+                return Color.white;
+        }
     }
 }

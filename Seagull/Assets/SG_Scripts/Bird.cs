@@ -30,7 +30,7 @@ public class Bird : MonoBehaviour {
         if(Physics.Raycast(new Ray(transform.position, -transform.up), out hit))
         {
             //Debug.Log(hit.distance);
-            if(hit.distance > 1)
+            if(hit.distance > 2)
             {
                 landed = false;
             }
@@ -48,8 +48,10 @@ public class Bird : MonoBehaviour {
             animator.SetFloat("Fly", 1);
             rigidBody.AddForce(transform.up * Time.deltaTime * 1000);
         }
-        //else
-        //{
+
+        PlayGestures();
+
+        // Landed on the ground.
         if (landed)
         {
             //animator.SetFloat("TakeOff", 0);
@@ -66,19 +68,15 @@ public class Bird : MonoBehaviour {
 			if (Input.GetKey(KeyCode.S))
 			{
 				animator.Play("Walk");
-				animator.SetFloat("Walk", -1);
+				animator.SetFloat("Walk", 1);
 				rigidBody.AddForce(transform.forward * Time.deltaTime * -1000);
 				isIdle = false;
 			}
-
-			if (isIdle)
-            {
-                animator.SetFloat("Walk", 0);
-                animator.Play("Idle");
-            }
+           
         }
         else
         {
+            // Do this while walking around
             if (Input.GetKey(KeyCode.W))
             {
                 rigidBody.AddForce(transform.forward * Time.deltaTime * 1000);
@@ -92,6 +90,7 @@ public class Bird : MonoBehaviour {
 		}
        // }
 
+        // Rotate around and stuff
         if(Input.GetKey(KeyCode.A))
         {
             transform.Rotate(-Vector3.up * 100 * Time.deltaTime);
@@ -100,5 +99,63 @@ public class Bird : MonoBehaviour {
         {
             transform.Rotate(Vector3.up * 100 * Time.deltaTime);
         }
+    }
+    
+    bool PlayGestures()
+    {
+        //animator.Play("Idle");
+        //Debug.Log("Peck pressed");
+        //Peck
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(new Ray(transform.position + Vector3.up, transform.forward + Vector3.up), out hit))
+            {
+                Debug.Log(hit.distance);
+                if (hit.distance < 7)
+                {
+                    var bn = hit.transform.gameObject.GetComponent<BirdNetwork>();
+                    if (bn != null)
+                    {
+                        bn.TakeDamage(10);
+                        Debug.Log("Seagull hit!");
+                    }
+                }
+            }
+
+            animator.Play("Peck");
+        }
+
+        //Small Bow
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.Play("Small_Bow");
+        }
+
+        //Big bow
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            animator.Play("Full_Bow");
+        }
+
+        // Wave
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            animator.Play("Wave");
+        }
+
+        //Lean Right
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.Play("LeanLeft");
+        }
+
+        //Lean Left
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            animator.Play("LeanRight");
+        }
+
+        return true;
     }
 }

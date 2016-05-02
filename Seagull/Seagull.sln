@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seagull.CSharp.Plugins", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seagull.CSharp", "Seagull.CSharp.csproj", "{65EA9B62-67A5-0E4D-6034-942D27670072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seagull.CSharp.Editor", "Seagull.CSharp.Editor.csproj", "{AF32056B-2563-EAD3-F47F-670C918DA38A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{65EA9B62-67A5-0E4D-6034-942D27670072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65EA9B62-67A5-0E4D-6034-942D27670072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65EA9B62-67A5-0E4D-6034-942D27670072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF32056B-2563-EAD3-F47F-670C918DA38A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF32056B-2563-EAD3-F47F-670C918DA38A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF32056B-2563-EAD3-F47F-670C918DA38A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF32056B-2563-EAD3-F47F-670C918DA38A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

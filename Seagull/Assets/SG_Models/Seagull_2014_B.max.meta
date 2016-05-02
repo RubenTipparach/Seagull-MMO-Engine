@@ -1,0 +1,1056 @@
+fileFormatVersion: 2
+guid: 190cfa5b958a517439e50215ee240959
+timeCreated: 1462132533
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Beak
+    100002: Body
+    100004: Breast
+    100006: gull_beak
+    100008: gull_body
+    100010: Head
+    100012: left_Leg
+    100014: LeftFoot
+    100016: LeftLeg
+    100018: LeftShoulder
+    100020: LeftThigh
+    100022: LeftWing
+    100024: LeftWingTip
+    100026: Neck
+    100028: right_leg
+    100030: RightFoot
+    100032: RightLeg
+    100034: RightShoulder
+    100036: RightThigh
+    100038: RightWing
+    100040: RightWingTip
+    100042: //RootNode
+    100044: wingleft
+    100046: WingRight
+    400000: Beak
+    400002: Body
+    400004: Breast
+    400006: gull_beak
+    400008: gull_body
+    400010: Head
+    400012: left_Leg
+    400014: LeftFoot
+    400016: LeftLeg
+    400018: LeftShoulder
+    400020: LeftThigh
+    400022: LeftWing
+    400024: LeftWingTip
+    400026: Neck
+    400028: right_leg
+    400030: RightFoot
+    400032: RightLeg
+    400034: RightShoulder
+    400036: RightThigh
+    400038: RightWing
+    400040: RightWingTip
+    400042: //RootNode
+    400044: wingleft
+    400046: WingRight
+    4300000: gull_body
+    4300002: gull_beak
+    4300004: wingleft
+    4300006: WingRight
+    4300008: right_leg
+    4300010: left_Leg
+    7400000: Take 001
+    7400002: Small_Bow
+    7400004: Walk
+    7400006: Peck
+    7400008: TakeOff
+    7400010: Flap
+    7400012: Soar
+    7400014: ShakeHead
+    7400016: Full_Bow
+    7400018: Wave
+    7400020: LeanRight
+    7400022: LeanLeft
+    9500000: //RootNode
+    13700000: gull_beak
+    13700002: gull_body
+    13700004: left_Leg
+    13700006: right_leg
+    13700008: wingleft
+    13700010: WingRight
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Small_Bow
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Peck
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: TakeOff
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 230
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Flap
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Soar
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ShakeHead
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 290
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Full_Bow
+      takeName: Take 001
+      firstFrame: 290
+      lastFrame: 360
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Wave
+      takeName: Take 001
+      firstFrame: 370
+      lastFrame: 420
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LeanRight
+      takeName: Take 001
+      firstFrame: 250
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LeanLeft
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 290
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Body/Breast
+        weight: 1
+      - path: Body/Breast/Neck
+        weight: 1
+      - path: Body/Breast/Neck/Head
+        weight: 1
+      - path: Body/Breast/Neck/Head/Beak
+        weight: 1
+      - path: Body/LeftShoulder
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing
+        weight: 1
+      - path: Body/LeftShoulder/LeftWing/LeftWingTip
+        weight: 1
+      - path: Body/LeftThigh
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg
+        weight: 1
+      - path: Body/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: Body/RightShoulder
+        weight: 1
+      - path: Body/RightShoulder/RightWing
+        weight: 1
+      - path: Body/RightShoulder/RightWing/RightWingTip
+        weight: 1
+      - path: Body/RightThigh
+        weight: 1
+      - path: Body/RightThigh/RightLeg
+        weight: 1
+      - path: Body/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: gull_body
+        weight: 1
+      - path: gull_body/gull_beak
+        weight: 1
+      - path: gull_body/left_Leg
+        weight: 1
+      - path: gull_body/right_leg
+        weight: 1
+      - path: gull_body/wingleft
+        weight: 1
+      - path: gull_body/WingRight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
