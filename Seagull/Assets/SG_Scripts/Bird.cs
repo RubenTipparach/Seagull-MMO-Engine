@@ -101,6 +101,10 @@ public class Bird : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// Plays the set of bird gestures.
+    /// </summary>
+    /// <returns></returns>
     bool PlayGestures()
     {
         //animator.Play("Idle");

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.0b15</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -77,10 +79,11 @@
   <ItemGroup>
     <Compile Include="Assets\SG_Scripts\Bird.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetwork.cs" />
+    <Compile Include="Assets\SG_Scripts\BirdNetworkUpdater.cs" />
     <Compile Include="Assets\SG_Scripts\BirdPoop.cs" />
     <Compile Include="Assets\SG_Scripts\GenerateWater.cs" />
     <Compile Include="Assets\SG_Scripts\NetworkInitializer.cs" />
-    <Compile Include="Assets\SG_Scripts\PoopTimer.cs" />
+    <Compile Include="Assets\SG_Scripts\Timer.cs" />
     <Compile Include="Assets\SG_Scripts\Server.cs" />
   </ItemGroup>
   <ItemGroup>
