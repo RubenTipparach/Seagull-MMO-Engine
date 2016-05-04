@@ -2,30 +2,32 @@
 using System.Collections;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 public class NetworkInitializer : MonoBehaviour {
-
-	public class Users
-	{
-		public ObjectId Id { get; set; }
-		public int user_id { get; set; }
-		public string name { get; set; }
-		public int age { get; set; }
-	}
 
 	private MongoClient _client;
 	private MongoServer _server;
 	private MongoDatabase _db;
 	private MongoCollection<Users> _users;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    Transform boxTracker;
+
+    /// <summary>
+    /// Use this for initialization. Starts this instance.
+    /// </summary>
+    void Start () {
 		
 		InitializeMongoDB();
-		StartCoroutine(InitializeMySQl());
+		// StartCoroutine(InitializeMySQl());
     }
 
-	IEnumerator InitializeMySQl()
+    /// <summary>
+    /// Runs the MySql instance of the server.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator InitializeMySQl()
 	{
 		WWW result = new WWW("http://localhost:8080/seagull/index.php");
 		yield return result;
@@ -39,10 +41,14 @@ public class NetworkInitializer : MonoBehaviour {
 		}
 	}
 
-	void InitializeMongoDB()
+    /// <summary>
+    /// Initializes the mongo database instance of this intializer.
+    /// </summary>
+    private void InitializeMongoDB()
 	{
-		_client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
-		_server = _client.GetServer();
+        //_client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
+        _client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
+        _server = _client.GetServer();
 
 		_server.Connect();
 		_db = _server.GetDatabase("seagulldb");
@@ -54,19 +60,30 @@ public class NetworkInitializer : MonoBehaviour {
 		var jsonString = _users.FindAll().ToJson();
 		var cursor = _users.FindAll();
 		Debug.Log(jsonString + "!");
+
 		foreach (var u in cursor)
 		{
 			Debug.Log(u.name);
 		}
 	}
 
-	public void WritePoopMessage(string message)
-	{
+    void Update()
+    {
+        MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        // Find me the user
+        IMongoQuery queryMyName = Query.EQ("name", "Ruben");
+        Users cursor = _users.FindOne(queryMyName);
+
+        // Now find the player location and update it.
+        MongoDB.Driver.Builders.Update.Set("", "").Set("","");
+    }
+
+    /// <summary>
+    /// Writes the poop message.
+    /// </summary>
+    /// <param name="message">The message.</param>
+    public void WritePoopMessage(string message)
+	{
 	}
 }

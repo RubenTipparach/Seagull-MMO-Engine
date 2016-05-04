@@ -1,11 +1,21 @@
-﻿using System;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.Networking;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Assets.SG_Scripts
+public class BirdNetworkUpdater : NetworkBehaviour
 {
-    class BirdNetworkUpdater
+
+    List<Bird> _registeredBirds;
+
+    void Start()
     {
+
+    }
+
+    void Update()
+    {
+
     }
 }
+

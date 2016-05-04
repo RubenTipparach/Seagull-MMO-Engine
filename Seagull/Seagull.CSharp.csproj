@@ -77,12 +77,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\SG_DataModel\BirdCharacter.cs" />
+    <Compile Include="Assets\SG_DataModel\Hats.cs" />
+    <Compile Include="Assets\SG_DataModel\Location.cs" />
+    <Compile Include="Assets\SG_DataModel\PlayerLocation.cs" />
+    <Compile Include="Assets\SG_DataModel\Users.cs" />
     <Compile Include="Assets\SG_Scripts\Bird.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetwork.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetworkUpdater.cs" />
     <Compile Include="Assets\SG_Scripts\BirdPoop.cs" />
     <Compile Include="Assets\SG_Scripts\GenerateWater.cs" />
     <Compile Include="Assets\SG_Scripts\NetworkInitializer.cs" />
+    <Compile Include="Assets\SG_Scripts\ServerMessenger.cs" />
     <Compile Include="Assets\SG_Scripts\Timer.cs" />
     <Compile Include="Assets\SG_Scripts\Server.cs" />
   </ItemGroup>
