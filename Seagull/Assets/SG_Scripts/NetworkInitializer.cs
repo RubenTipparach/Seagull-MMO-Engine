@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -6,19 +7,50 @@ using MongoDB.Driver.Builders;
 
 public class NetworkInitializer : MonoBehaviour {
 
+	/// <summary>
+	/// The client.
+	/// </summary>
 	private MongoClient _client;
+
+	/// <summary>
+	/// The server.
+	/// </summary>
 	private MongoServer _server;
+
+	/// <summary>
+	/// The database instance.
+	/// </summary>
 	private MongoDatabase _db;
+
+	/// <summary>
+	/// The collection of users - probably won't be used other than for testing.
+	/// </summary>
 	private MongoCollection<Users> _users;
 
-    [SerializeField]
-    Transform boxTracker;
+	/// <summary>
+	/// The internal postion tracker. For testing that one guy. I'll have to make more trackers for other birds.
+	/// </summary>
+	private Transform _internalPostionTracker;
+
+	/// <summary>
+	/// Sets the track position test.
+	/// </summary>
+	/// <value>
+	/// The track position test.
+	/// </value>
+	public Transform TrackPositionTest
+	{
+		set
+		{
+			_internalPostionTracker = value;
+		}
+	}
 
     /// <summary>
     /// Use this for initialization. Starts this instance.
     /// </summary>
-    void Start () {
-		
+    void Awake ()
+	{
 		InitializeMongoDB();
 		// StartCoroutine(InitializeMySQl());
     }
@@ -67,23 +99,73 @@ public class NetworkInitializer : MonoBehaviour {
 		}
 	}
 
-    void Update()
+	/// <summary>
+	/// Primary update method for unity.
+	/// </summary>
+	void Update()
     {
-        MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
-
-        // Find me the user
-        IMongoQuery queryMyName = Query.EQ("name", "Ruben");
-        Users cursor = _users.FindOne(queryMyName);
-
-        // Now find the player location and update it.
-        MongoDB.Driver.Builders.Update.Set("", "").Set("","");
+		if (_internalPostionTracker != null && _db != null)
+		{
+			UpdateMDB();
+		}
     }
 
-    /// <summary>
-    /// Writes the poop message.
-    /// </summary>
-    /// <param name="message">The message.</param>
-    public void WritePoopMessage(string message)
+	/// <summary>
+	/// The MongoDB update method.
+	/// Currently it keeps the player's brd consistent.
+	/// </summary>
+	private void UpdateMDB()
+	{
+		MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
+
+		// Find me the user
+		IMongoQuery queryMyName = Query.EQ("name", "Ruben");
+		Users cursor = _users.FindOne(queryMyName);
+		// Debug.Log(string.Format("Found User: {0}.", cursor.name));
+
+		// Find the User Id associated with the player location.
+		IMongoQuery findLocalEntry = Query.EQ("user_Id", cursor.Id);
+		PlayerLocation pl = locations.FindOne(findLocalEntry);
+
+		// Debug.Log(string.Format("Found {0} {1} {2}.", pl.location.x, pl.location.y, pl.location.z));
+
+		// Now find the player location and update it.
+		var update = MongoDB.Driver.Builders.Update
+			.Set("location.x", _internalPostionTracker.position.x)
+			.Set("location.y", _internalPostionTracker.position.y)
+			.Set("location.z", _internalPostionTracker.position.z);
+
+		// Run the updat call with the filter Query.
+		var result = locations.Update(findLocalEntry, update);
+	}
+
+	/// <summary>
+	/// Links up player position to MongoDB.
+	/// </summary>
+	/// <returns></returns>
+	public Vector3 LinkUpPlayerPositionToMDB()
+	{
+		MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
+
+		// Find me the user
+		IMongoQuery queryMyName = Query.EQ("name", "Ruben");
+		Users cursor = _users.FindOne(queryMyName);
+		// Debug.Log(string.Format("Found User: {0}.", cursor.name));
+
+		// Find the User Id associated with the player location.
+		IMongoQuery findLocalEntry = Query.EQ("user_Id", cursor.Id);
+		PlayerLocation p1l = locations.FindOne(findLocalEntry);
+		Location p1Location = p1l.location;
+
+		// Debug.Log(string.Format("Found {0} {1} {2}.", pl.location.x, pl.location.y, pl.location.z));
+		return new Vector3(Convert.ToSingle(p1Location.x), Convert.ToSingle(p1Location.y), Convert.ToSingle(p1Location.z));
+    }
+
+	/// <summary>
+	/// Writes the poop message.
+	/// </summary>
+	/// <param name="message">The message.</param>
+	public void WritePoopMessage(string message)
 	{
 	}
 }

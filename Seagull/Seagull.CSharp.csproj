@@ -77,20 +77,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SG_DataModel\BirdCharacter.cs" />
-    <Compile Include="Assets\SG_DataModel\Hats.cs" />
-    <Compile Include="Assets\SG_DataModel\Location.cs" />
-    <Compile Include="Assets\SG_DataModel\PlayerLocation.cs" />
-    <Compile Include="Assets\SG_DataModel\Users.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\Attributes.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\BirdCharacter.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\Hats.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\Items.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\Location.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\PlayerLocation.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\PlayerStats.cs" />
+    <Compile Include="Assets\SG_DataModel_Mongo\Users.cs" />
     <Compile Include="Assets\SG_Scripts\Bird.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetwork.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetworkUpdater.cs" />
     <Compile Include="Assets\SG_Scripts\BirdPoop.cs" />
+    <Compile Include="Assets\SG_Scripts\CustomNetworkManager.cs" />
     <Compile Include="Assets\SG_Scripts\GenerateWater.cs" />
     <Compile Include="Assets\SG_Scripts\NetworkInitializer.cs" />
+    <Compile Include="Assets\SG_Scripts\Server.cs" />
     <Compile Include="Assets\SG_Scripts\ServerMessenger.cs" />
     <Compile Include="Assets\SG_Scripts\Timer.cs" />
-    <Compile Include="Assets\SG_Scripts\Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mongo\MongoDB.Bson.xml" />
