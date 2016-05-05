@@ -1,0 +1,24 @@
+db.getCollection('Hats').find({})
+/* 1 */
+{
+    "_id" : ObjectId("572ad66a3a493a3168f88f3a"),
+    "HatType" : "Fedora"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("572ad66a3a493a3168f88f3b"),
+    "HatType" : "TopHat"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("572ad66a3a493a3168f88f3c"),
+    "HatType" : "Propeller"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("572ae1c93a493a3168f88f3f"),
+    "HatType" : "Fez"
+}
