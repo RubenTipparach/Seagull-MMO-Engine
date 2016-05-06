@@ -161,6 +161,38 @@ public class NetworkInitializer : MonoBehaviour {
 		return new Vector3(Convert.ToSingle(p1Location.x), Convert.ToSingle(p1Location.y), Convert.ToSingle(p1Location.z));
     }
 
+    /// <summary>
+    /// Read database method. Only retrieve one item,
+    /// designed for specific UserId based objects.
+    /// </summary>
+    /// <param name="dbCallback"></param>
+    public T ReadOneFromDatabase<T>(string collectionName, ObjectId user_Id)
+    {
+        MongoCollection<T> dataCollection = _db.GetCollection<T>(collectionName);
+        return dataCollection.FindOne(Query.EQ("user_Id", user_Id));
+    }
+
+    /// <summary>
+    /// A more generalized callback method designed for
+    /// general purpose data reads with the database instance.
+    /// </summary>
+    /// <param name="dbCallback"></param>
+    public void ReadDatabase(Action<MongoDatabase> dbCallback)
+    {
+        dbCallback(_db);
+    }
+
+    /// <summary>
+    /// Write to datrabase method. Might merge into one if I 
+    /// can't find any additional usages.
+    /// </summary>
+    /// <param name="dbCallback"></param>
+    public void UpdateDatabase(Action<MongoDatabase> dbCallback)
+    {
+        dbCallback(_db);
+    }
+
+
 	/// <summary>
 	/// Writes the poop message.
 	/// </summary>
