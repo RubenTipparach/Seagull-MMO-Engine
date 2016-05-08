@@ -36,6 +36,8 @@ public class BirdNetwork : NetworkBehaviour {
     [SerializeField]
     Renderer birdColor;
 
+	public short serverId;
+
 	/// <summary>
 	/// Use this for initialization.
 	/// </summary>
@@ -57,13 +59,13 @@ public class BirdNetwork : NetworkBehaviour {
     /// </summary>
     public override void OnStartLocalPlayer()
     {
-       // base.OnStartLocalPlayer();
+        // base.OnStartLocalPlayer();
         //networkAnimator.SetParameterAutoSend(0, true); 
     }
 
     public override void PreStartClient()
     {
-      //  base.PreStartClient();
+       //  base.PreStartClient();
        // networkAnimator.SetParameterAutoSend(0, true);
     }
 
@@ -108,7 +110,11 @@ public class BirdNetwork : NetworkBehaviour {
         NetworkServer.Spawn(poopy);
     }
 
-    [Command]
+	/// <summary>
+	/// Client - Server command. Allows the server to terminate player.
+	/// This just also terminates the connection whether its Host or Client lol.
+	/// </summary>
+	[Command]
     void CmdCheckTerminatePlayer()
     {
         if(Health <= 0)
@@ -117,17 +123,26 @@ public class BirdNetwork : NetworkBehaviour {
         }
     }
 
-    [Server]
+	/// <summary>
+	/// Server - Client. When a bird gets hit or whatever, a bird tells the server that
+	/// it requests this method be called to the other bird.
+	/// </summary>
+	/// <param name="amount">The amount.</param>
+	[Server]
     public void TakeDamage(int amount)
     {
         // will only work on server
         Health -= amount;
 
-        //birdColor.material.color = ColorSwitch();
+        // birdColor.material.color = ColorSwitch();
         RpcPushClientColor();
     }
 
-    [ClientRpc]
+	/// <summary>
+	/// The Server - Client remotely calls this method on a client to change the color.
+	/// Oddly the bird colors or slightly out of sync, I wonder why.
+	/// </summary>
+	[ClientRpc]
     public void RpcPushClientColor()
     {
         var colorPicked = ColorSwitch();
@@ -135,13 +150,21 @@ public class BirdNetwork : NetworkBehaviour {
         CmdChangeColor(colorPicked);
     }
 
-    [Command]
+	/// <summary>
+	/// Client - Server commands to change the color.
+	/// </summary>
+	/// <param name="colorPicked"></param>
+	[Command]
     public void CmdChangeColor(Color colorPicked)
     {
         birdColor.material.color = colorPicked;
     }
 
-    Color ColorSwitch()
+	/// <summary>
+	/// Colors the switch.
+	/// </summary>
+	/// <returns></returns>
+	private Color ColorSwitch()
     {
         switch ( Health)
         {

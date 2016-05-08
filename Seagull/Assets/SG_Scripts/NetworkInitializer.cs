@@ -4,6 +4,7 @@ using System.Collections;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using System.Collections.Generic;
 
 public class NetworkInitializer : MonoBehaviour {
 
@@ -51,7 +52,7 @@ public class NetworkInitializer : MonoBehaviour {
     /// </summary>
     void Awake ()
 	{
-		InitializeMongoDB();
+		InitializeMongoDBConnection();
 		// StartCoroutine(InitializeMySQl());
     }
 
@@ -76,7 +77,7 @@ public class NetworkInitializer : MonoBehaviour {
     /// <summary>
     /// Initializes the mongo database instance of this intializer.
     /// </summary>
-    private void InitializeMongoDB()
+    private void InitializeMongoDBConnection()
 	{
         //_client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
         _client = new MongoClient(new MongoUrl("mongodb://localhost")); //27017
@@ -87,7 +88,6 @@ public class NetworkInitializer : MonoBehaviour {
 		_users = _db.GetCollection<Users>("Users");
 
 		Debug.Log(string.Format("Found {0} documents.", _users.Count()));
-		var filter = new Users();
 
 		var jsonString = _users.FindAll().ToJson();
 		var cursor = _users.FindAll();
@@ -104,61 +104,20 @@ public class NetworkInitializer : MonoBehaviour {
 	/// </summary>
 	void Update()
     {
-		if (_internalPostionTracker != null && _db != null)
+		
+		// Stop line for all mongo db stuff.
+		if (_db == null) { return; }
+
+		var syncPlayers = GetComponent<CustomNetworkManager>().SyncPlayers;
+
+		// Synchronize all players. Maybe we need a timer?
+		if (syncPlayers != null)
 		{
-			UpdateMDB();
+			foreach (var sp in syncPlayers)
+			{
+				sp.Value.SynchronizePlayer();
+			}
 		}
-    }
-
-	/// <summary>
-	/// The MongoDB update method.
-	/// Currently it keeps the player's brd consistent.
-	/// </summary>
-	private void UpdateMDB()
-	{
-		MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
-
-		// Find me the user
-		IMongoQuery queryMyName = Query.EQ("name", "Ruben");
-		Users cursor = _users.FindOne(queryMyName);
-		// Debug.Log(string.Format("Found User: {0}.", cursor.name));
-
-		// Find the User Id associated with the player location.
-		IMongoQuery findLocalEntry = Query.EQ("user_Id", cursor.Id);
-		PlayerLocation pl = locations.FindOne(findLocalEntry);
-
-		// Debug.Log(string.Format("Found {0} {1} {2}.", pl.location.x, pl.location.y, pl.location.z));
-
-		// Now find the player location and update it.
-		var update = MongoDB.Driver.Builders.Update
-			.Set("location.x", _internalPostionTracker.position.x)
-			.Set("location.y", _internalPostionTracker.position.y)
-			.Set("location.z", _internalPostionTracker.position.z);
-
-		// Run the updat call with the filter Query.
-		var result = locations.Update(findLocalEntry, update);
-	}
-
-	/// <summary>
-	/// Links up player position to MongoDB.
-	/// </summary>
-	/// <returns></returns>
-	public Vector3 LinkUpPlayerPositionToMDB()
-	{
-		MongoCollection<PlayerLocation> locations = _db.GetCollection<PlayerLocation>("PlayerLocation");
-
-		// Find me the user
-		IMongoQuery queryMyName = Query.EQ("name", "Ruben");
-		Users cursor = _users.FindOne(queryMyName);
-		// Debug.Log(string.Format("Found User: {0}.", cursor.name));
-
-		// Find the User Id associated with the player location.
-		IMongoQuery findLocalEntry = Query.EQ("user_Id", cursor.Id);
-		PlayerLocation p1l = locations.FindOne(findLocalEntry);
-		Location p1Location = p1l.location;
-
-		// Debug.Log(string.Format("Found {0} {1} {2}.", pl.location.x, pl.location.y, pl.location.z));
-		return new Vector3(Convert.ToSingle(p1Location.x), Convert.ToSingle(p1Location.y), Convert.ToSingle(p1Location.z));
     }
 
     /// <summary>
@@ -199,5 +158,23 @@ public class NetworkInitializer : MonoBehaviour {
 	/// <param name="message">The message.</param>
 	public void WritePoopMessage(string message)
 	{
+	}
+
+	/// <summary>
+	/// Get's a list of registered users on the databse.
+	/// </summary>
+	/// <returns></returns>
+	public List<Users> GetUserList()
+	{
+		MongoCollection<Users> usersCollection = _db.GetCollection<Users>("Users");
+		var cursor = usersCollection.FindAll();
+		List<Users> usersFound = new List<Users>();
+
+		foreach (var u in cursor)
+		{
+			usersFound.Add(u);
+		}
+
+		return usersFound;
 	}
 }

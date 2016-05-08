@@ -11,5 +11,5 @@ public class PlayerStats
 
 	public int experiencePoints { get; set; }
 	public int level { get; set; }
-	public Attribute attributes { get; set; }
+	public Attributes attributes { get; set; } // Had to pluralize, Attribute is already a C# class.
 }

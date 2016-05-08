@@ -7,6 +7,6 @@ using System.Text;
 public class PlayerInventory
 {
     public ObjectId Id { get; set;  }
-    public ObjectId user_id { get; set; }
+    public ObjectId user_Id { get; set; }
     public Items[] items { get; set; }
 }

@@ -9,5 +9,6 @@ public class PlayerLocation
     public ObjectId Id { get; set; }
     public ObjectId user_Id { get; set; }
     public Location location { get; set; }
+	public Rotation rotation { get; set; }
 }
 
