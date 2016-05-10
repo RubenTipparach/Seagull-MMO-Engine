@@ -1,0 +1,43 @@
+/* 1 */
+{
+    "_id" : ObjectId("572adab53a493a3168f88f3d"),
+    "user_Id" : ObjectId("572064afb773ea3328a4ffaf"),
+    "items" : [ 
+        {
+            "hats" : {
+                "hatType" : "Fedora"
+            },
+            "quantity" : 1,
+            "equiped" : true
+        }, 
+        {
+            "hats" : {
+                "hatType" : "TopHat"
+            },
+            "quantity" : 1,
+            "equiped" : false
+        }
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("572adae03a493a3168f88f3e"),
+    "user_Id" : ObjectId("5720657cb773ea3328a4ffb0"),
+    "items" : [ 
+        {
+            "hats" : {
+                "hatType" : "Propeller"
+            },
+            "quantity" : 2,
+            "equiped" : false
+        }, 
+        {
+            "hats" : {
+                "hatType" : "Fez"
+            },
+            "quantity" : 1,
+            "equiped" : false
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+/* 1 */
+{
+    "_id" : ObjectId("572ad4823a493a3168f88f38"),
+    "user_Id" : ObjectId("572064afb773ea3328a4ffaf"),
+    "experiencePoints" : 0,
+    "level" : 1,
+    "attributes" : {
+        "strength" : 1,
+        "agility" : 2,
+        "intelligence" : 0
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("572ad5883a493a3168f88f39"),
+    "user_Id" : ObjectId("5720657cb773ea3328a4ffb0"),
+    "experiencePoints" : 0,
+    "level" : 1,
+    "attributes" : {
+        "strength" : 1,
+        "agility" : 1,
+        "intelligence" : 2
+    }
+}

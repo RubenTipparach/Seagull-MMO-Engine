@@ -77,19 +77,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\PlayerInfo.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Attributes.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\BirdCharacter.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Hats.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Items.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Location.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Message.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\PlayerInventory.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\PlayerLocation.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\PlayerStats.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Rotation.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Mongo\Users.cs" />
-    <Compile Include="Assets\SG_DataModel\SG_DataModel_Sql\Class1.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\PlayerInfo.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Attributes.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\BirdCharacter.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Hats.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Items.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Location.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Message.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\PlayerInventory.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\PlayerLocation.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\PlayerStats.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Rotation.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Mongo\Users.cs" />
+    <Compile Include="Assets\SG_Scripts\SG_DataModel\SG_DataModel_Sql\PlayerInfoSql.cs" />
     <Compile Include="Assets\SG_Scripts\Bird.cs" />
     <Compile Include="Assets\SG_Scripts\BirdNetwork.cs" />
     <Compile Include="Assets\SG_Scripts\CustomNetworkManager.cs" />

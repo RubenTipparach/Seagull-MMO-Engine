@@ -1,0 +1,37 @@
+/* 1 */
+{
+    "_id" : ObjectId("572c68db3a493a3168f88f40"),
+    "user_Id" : ObjectId("572064afb773ea3328a4ffaf"),
+    "leftByUser" : "Ruben",
+    "message" : "Hello Birds!",
+    "location" : {
+        "x" : 100,
+        "y" : 100,
+        "z" : 100
+    },
+    "rotation" : {
+        "w" : 0,
+        "x" : 0,
+        "y" : 0,
+        "z" : 1
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("572c68db3a493a3168f88f41"),
+    "user_Id" : ObjectId("5721011c815a3c22e511e1a4"),
+    "leftByUser" : "Anakin",
+    "message" : "Meow!!!!!",
+    "location" : {
+        "x" : 120,
+        "y" : 100,
+        "z" : 100
+    },
+    "rotation" : {
+        "w" : 0,
+        "x" : 0,
+        "y" : 0,
+        "z" : 1
+    }
+}

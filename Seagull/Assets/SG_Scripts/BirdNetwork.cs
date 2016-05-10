@@ -95,7 +95,7 @@ public class BirdNetwork : NetworkBehaviour {
 		// Every bird should get a max of like 5 messages or something.
 		// How the F do I get message?
 		string message = "";
-		talkToServer.WritePoopMessage(message);
+		//talkToServer.WritePoopMessage(message);
     }
 
 	/// <summary>

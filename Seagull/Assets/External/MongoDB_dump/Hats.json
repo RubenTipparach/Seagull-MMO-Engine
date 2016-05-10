@@ -1,4 +1,3 @@
-db.getCollection('Hats').find({})
 /* 1 */
 {
     "_id" : ObjectId("572ad66a3a493a3168f88f3a"),

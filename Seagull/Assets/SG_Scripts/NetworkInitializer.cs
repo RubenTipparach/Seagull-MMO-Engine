@@ -33,6 +33,20 @@ public class NetworkInitializer : MonoBehaviour {
 	/// </summary>
 	private Transform _internalPostionTracker;
 
+	[SerializeField]
+	private DatabaseType dbType;
+
+	/// <summary>
+	/// Allows the network manager to choose.
+	/// </summary>
+	public DatabaseType InitialDBType
+	{
+		get
+		{
+			return dbType;
+		}
+	}
+
 	/// <summary>
 	/// Sets the track position test.
 	/// </summary>
@@ -52,8 +66,14 @@ public class NetworkInitializer : MonoBehaviour {
     /// </summary>
     void Awake ()
 	{
-		InitializeMongoDBConnection();
-		// StartCoroutine(InitializeMySQl());
+		if (dbType == DatabaseType.MongoDB)
+		{
+			InitializeMongoDBConnection();
+		}
+		else if (dbType == DatabaseType.MySql)
+		{
+			StartCoroutine(InitializeMySQl());
+		}
     }
 
     /// <summary>
@@ -63,7 +83,9 @@ public class NetworkInitializer : MonoBehaviour {
     private IEnumerator InitializeMySQl()
 	{
 		WWW result = new WWW("http://localhost:8080/seagull/index.php");
+
 		yield return result;
+
 		if (result.error != null)
 		{
 			Debug.Log("Error");
@@ -104,21 +126,36 @@ public class NetworkInitializer : MonoBehaviour {
 	/// </summary>
 	void Update()
     {
-		
-		// Stop line for all mongo db stuff.
-		if (_db == null) { return; }
-
-		var syncPlayers = GetComponent<CustomNetworkManager>().SyncPlayers;
-
-		// Synchronize all players. Maybe we need a timer?
-		if (syncPlayers != null)
+		Profiler.BeginSample("On Synchronize Player.");
+		// All mongo db stuff.
+		if (dbType == DatabaseType.MongoDB)
 		{
-			foreach (var sp in syncPlayers)
+			var syncPlayers = GetComponent<CustomNetworkManager>().SyncPlayers;
+
+			// Synchronize all players. Maybe we need a timer?
+			if (syncPlayers != null)
 			{
-				sp.Value.SynchronizePlayer();
+				foreach (var sp in syncPlayers)
+				{
+					StartCoroutine(sp.Value.SynchronizePlayer());
+				}
 			}
 		}
-    }
+		else if (dbType == DatabaseType.MySql)
+		{
+			var syncPlayers = GetComponent<CustomNetworkManager>().SyncPlayersSql;
+
+			// Synchronize all players. Maybe we need a timer?
+			if (syncPlayers != null)
+			{
+				foreach (var sp in syncPlayers)
+				{
+					StartCoroutine(sp.Value.SynchronizePlayer());
+				}
+			}
+		}
+		Profiler.EndSample();
+	}
 
     /// <summary>
     /// Read database method. Only retrieve one item,
@@ -151,15 +188,6 @@ public class NetworkInitializer : MonoBehaviour {
         dbCallback(_db);
     }
 
-
-	/// <summary>
-	/// Writes the poop message.
-	/// </summary>
-	/// <param name="message">The message.</param>
-	public void WritePoopMessage(string message)
-	{
-	}
-
 	/// <summary>
 	/// Get's a list of registered users on the databse.
 	/// </summary>
@@ -177,4 +205,13 @@ public class NetworkInitializer : MonoBehaviour {
 
 		return usersFound;
 	}
+}
+
+/// <summary>
+/// Database options.
+/// </summary>
+public enum DatabaseType
+{
+	MySql,
+	MongoDB
 }

@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,13 +66,26 @@ public class PlayerInfo
 	// Unity game stuff.
 	private Transform _playerTransform;
 
+	/// <summary>
+	/// Unity's Game Object reference.
+	/// </summary>
 	private GameObject _playerObject;
+
+	/// <summary>
+	/// The internal id used for synchronizing the player with server.
+	/// </summary>
+	public int InternalId
+	{
+		get;
+		private set;
+	}
+
     /// <summary>
     /// The constructor for the main Player info class.
     /// </summary>
     /// <param name="userId"></param>
     /// <param name="initializer"></param>
-    public PlayerInfo(Users userId, NetworkInitializer initializer)
+    public PlayerInfo(Users userId, NetworkInitializer initializer, int internalId)
     {
         _userId = userId;
         _initializer = initializer;
@@ -79,12 +93,13 @@ public class PlayerInfo
         // set all player variables here.
         _playerStats = GetPlayerStats(_userId.Id);
         _playerLocation = GetPlayerLocation(_userId.Id);
-        _playerInventory = GetPlayerInventory(_userId.Id);		
+        _playerInventory = GetPlayerInventory(_userId.Id);
+
+		InternalId = internalId;
     }
 
 	/// <summary>
-	/// TODO: make server spawn player.
-	/// instantiate player
+	/// A reference to the instantiated player.
 	/// set any other game attributes here. We'll use those changes
     /// to allow us to switch back and forth between Data Model and Game Models.
 	/// </summary>
@@ -105,11 +120,11 @@ public class PlayerInfo
 	/// that is triggered when some in game event happens to change the
 	/// state of the data. This data will then be applied to the DB.
 	/// </remarks>
-    public void SynchronizePlayer()
+    public IEnumerator SynchronizePlayer()
     {
         // SyncStats();
         // SyncInventory();
-        SyncLocation();
+        yield return SyncLocation();
     }
 
 
@@ -179,25 +194,40 @@ public class PlayerInfo
 	/// <summary>
 	/// Synchronizes the location. Ok guys.. how do we this?
 	/// </summary>
-	private void SyncLocation()
+	private IEnumerator SyncLocation()
     {
-		_initializer.UpdateDatabase((MongoDatabase db) =>
+		if (_playerTransform == null)
 		{
-			MongoCollection<PlayerLocation> locations = db.GetCollection<PlayerLocation>("PlayerLocation");
+			_initializer.gameObject.GetComponent<CustomNetworkManager>().SyncPlayers.Remove(InternalId);
+
+		}
+		else
+		{
+			MongoCollection<PlayerLocation> locations = null;
+            _initializer.UpdateDatabase((MongoDatabase db) =>
+			{
+				locations = db.GetCollection<PlayerLocation>("PlayerLocation");
+			});
+
+			// To learn the mongo, one must become the mongo!
+			yield return locations;
+
 			IMongoQuery findLocalEntry = Query.EQ("user_Id", _userId.Id);
+			_playerLocation.SyncLocaitonAndRotation(_playerTransform);
 
 			UpdateBuilder update = Update
-				.Set("location.x", _playerTransform.position.x)
-				.Set("location.y", _playerTransform.position.y)
-				.Set("location.z", _playerTransform.position.z)
-				.Set("rotation.w", _playerTransform.rotation.w)
-				.Set("rotation.x", _playerTransform.rotation.x)
-				.Set("rotation.y", _playerTransform.rotation.y)
-				.Set("rotation.z", _playerTransform.rotation.z);
+				.Set("location.x", _playerLocation.location.x)
+				.Set("location.y", _playerLocation.location.y)
+				.Set("location.z", _playerLocation.location.z)
+
+				.Set("rotation.w", _playerLocation.rotation.w)
+				.Set("rotation.x", _playerLocation.rotation.x)
+				.Set("rotation.y", _playerLocation.rotation.y)
+				.Set("rotation.z", _playerLocation.rotation.z);
 
 			// That's a funny name. This statement updates the database with these vals.
 			WriteConcernResult result = locations.Update(findLocalEntry, update);
-        });
+		}
     }
 
 	/// <summary>
@@ -214,6 +244,7 @@ public class PlayerInfo
 	/// <returns></returns>
 	public override string ToString()
 	{
+		// Consolidate stats information.
 		string stats = string.Format(
 @"	
 	Level: {0}
@@ -227,6 +258,7 @@ _playerStats.attributes.strength,
 _playerStats.attributes.agility,
 _playerStats.attributes.intelligence);
 
+		// Consolidate inventory.
 		string inventory = "";
 		foreach(var item in _playerInventory.items)
 		{
@@ -235,6 +267,7 @@ _playerStats.attributes.intelligence);
 				item.hats.hatType, item.quantity, item.equiped);
 		}
 
+		// Form the one large string.
 		return string.Format(
 @"User Name: {0}
 User ID: {1}
